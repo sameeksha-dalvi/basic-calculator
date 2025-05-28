@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <input value = "1+1"><br>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>\</button><br>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>*</button><br>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>-</button><br>
-        <button>0</button>
-        <button>clear</button>
-        <button>=</button>
-        <button>+</button>   
-    </div>
-    
-    
-   
-   
-    
 
-    
-   <script src="script.js"></script> 
+<body>
+    <h1 id="header">Calculator</h1>
+    <div class="container">
+        <div class="btn-container">
+            <div id="input-div">
+                <input id="user-input" value="1+1"><br>
+            </div>
+            <div class="">
+                <button class="digit-btn">7</button>
+                <button class="digit-btn">8</button>
+                <button class="digit-btn">9</button>
+                <button class="op-btn">\</button><br>
+            </div>
+            <div>
+                <button class="digit-btn">4</button>
+                <button class="digit-btn">5</button>
+                <button class="digit-btn">6</button>
+                <button class="op-btn">*</button><br>
+            </div>
+            <div>
+                <button class="digit-btn">1</button>
+                <button class="digit-btn">2</button>
+                <button class="digit-btn">3</button>
+                <button class="op-btn">-</button><br>
+            </div>
+            <div>
+                <button class="digit-btn">0</button>
+                <button id="btn-clear">AC</button>
+                <button id="equalTo-btn">=</button>
+                <button class="op-btn">+</button>
+            </div>
+
+            <div>
+            </div>
+
+
+
+
+
+
+
+            <script src="script.js"></script>
 </body>
+
 </html>
