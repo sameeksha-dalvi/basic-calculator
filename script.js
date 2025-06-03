@@ -11,6 +11,10 @@ const digit_8 = document.querySelector("#digit-8");
 const digit_9 = document.querySelector("#digit-9");
 const digit_0 = document.querySelector("#digit-0");
 
+let firstNum;
+let secondNum;
+let operator;
+
 digit_1.addEventListener("click", () => {
     populateDisplay("1");
 });
@@ -94,7 +98,16 @@ function divide(num1, num2) {
 
 
 function populateDisplay(value) {
-
+     
     const displayValue = document.querySelector("#user-input");
-    displayValue.setAttribute("value", value);
+    let defaultValue = displayValue.getAttribute("value");
+
+    if(defaultValue == "" || defaultValue == undefined || defaultValue == null){
+        console.log("first digit entered");
+        displayValue.setAttribute("value", value);
+    }else{
+        displayValue.setAttribute("value", defaultValue + value);
+    }
+
+   
 }
