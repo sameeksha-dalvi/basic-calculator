@@ -1,9 +1,63 @@
 
 
+const digit_1 = document.querySelector("#digit-1");
+const digit_2 = document.querySelector("#digit-2");
+const digit_3 = document.querySelector("#digit-3");
+const digit_4 = document.querySelector("#digit-4");
+const digit_5 = document.querySelector("#digit-5");
+const digit_6 = document.querySelector("#digit-6");
+const digit_7 = document.querySelector("#digit-7");
+const digit_8 = document.querySelector("#digit-8");
+const digit_9 = document.querySelector("#digit-9");
+const digit_0 = document.querySelector("#digit-0");
+
+digit_1.addEventListener("click", () => {
+    populateDisplay("1");
+});
+
+
+digit_2.addEventListener("click", () => {
+    populateDisplay("2");
+});
+
+digit_3.addEventListener("click", () => {
+    populateDisplay("3");
+});
+
+digit_4.addEventListener("click", () => {
+    populateDisplay("4");
+});
+
+digit_5.addEventListener("click", () => {
+    populateDisplay("5");
+});
+
+digit_6.addEventListener("click", () => {
+    populateDisplay("6");
+});
+
+digit_7.addEventListener("click", () => {
+    populateDisplay("7");
+});
+
+digit_8.addEventListener("click", () => {
+    populateDisplay("8");
+});
+
+digit_9.addEventListener("click", () => {
+    populateDisplay("9");
+});
+
+digit_0.addEventListener("click", () => {
+    populateDisplay("0");
+});
+
+
+
 function operate(op, num1, num2) {
 
     switch (op) {
-        
+
         case "+": add(num1, num2);
             break;
 
@@ -35,4 +89,12 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     return num1 / num2;
+}
+
+
+
+function populateDisplay(value) {
+
+    const displayValue = document.querySelector("#user-input");
+    displayValue.setAttribute("value", value);
 }
