@@ -114,9 +114,13 @@ function populateDisplay(value) {
     if(defaultValue == "" || defaultValue == undefined || defaultValue == null){
         console.log("first digit entered");
         displayValue.setAttribute("value", value);
+        firstNum = parseInt(value);
     }else{
         displayValue.setAttribute("value", defaultValue + value);
+        let finalVal = defaultValue + value;
+        firstNum = parseInt (finalVal);
     }
 
+    console.log("firstNum "+firstNum);
    
 }
