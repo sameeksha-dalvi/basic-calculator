@@ -13,6 +13,11 @@ const digit_0 = document.querySelector("#digit-0");
 
 const clearBtn = document.querySelector("#btn-clear");
 
+const op_add = document.querySelector("#op_add");
+const op_sub = document.querySelector("#op_sub");
+const op_mul = document.querySelector("#op_mul");
+const op_div = document.querySelector("#op_div");
+
 let firstNum;
 let secondNum;
 let operator;
@@ -62,6 +67,22 @@ clearBtn.addEventListener("click", () => {
     populateDisplay("");
 });
 
+op_add.addEventListener("click", () => {
+    populateDisplay("+");
+});
+
+op_sub.addEventListener("click", () => {
+    populateDisplay("-");
+});
+
+op_mul.addEventListener("click", () => {
+    populateDisplay("*");
+});
+
+op_div.addEventListener("click", () => {
+    populateDisplay("/");
+});
+
 function operate(op, num1, num2) {
 
     switch (op) {
@@ -105,7 +126,7 @@ function populateDisplay(value) {
      
     const displayValue = document.querySelector("#user-input");
     let defaultValue = displayValue.getAttribute("value");
-
+    
     if(value == ""){// reset the display
         displayValue.setAttribute("value", value);
         return;
@@ -116,11 +137,17 @@ function populateDisplay(value) {
         displayValue.setAttribute("value", value);
         firstNum = parseInt(value);
     }else{
+
+        if(value == "+" || value == "-" || value == "*" || value == "/"){
+            operator =  value; 
+            console.log("operator : "+operator);
+        }
+        console.log("defaultValue :"+defaultValue);
         displayValue.setAttribute("value", defaultValue + value);
         let finalVal = defaultValue + value;
         firstNum = parseInt (finalVal);
     }
 
-    console.log("firstNum "+firstNum);
+    //console.log("firstNum "+firstNum);
    
 }
