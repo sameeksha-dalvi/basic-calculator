@@ -18,6 +18,8 @@ const op_sub = document.querySelector("#op_sub");
 const op_mul = document.querySelector("#op_mul");
 const op_div = document.querySelector("#op_div");
 
+const equalBtn = document.querySelector("#equalTo-btn");
+
 let firstNum;
 let secondNum;
 let operator;
@@ -83,24 +85,36 @@ op_div.addEventListener("click", () => {
     populateDisplay("/");
 });
 
+equalBtn.addEventListener("click", () =>{
+
+    if(operator == "" || operator == undefined || firstNum == "NaN" || secondNum == "NaN"){
+       alert("Please enter correct values"); 
+    }
+    operate(operator,firstNum,secondNum);
+});
+
 function operate(op, num1, num2) {
+
+    let result = "";
 
     switch (op) {
 
-        case "+": add(num1, num2);
+        case "+":result = add(num1, num2);
             break;
 
-        case "-": subtract(num1, num2);
+        case "-":result = subtract(num1, num2);
             break;
 
-        case "*": multiply(num1, num2);
+        case "*":result = multiply(num1, num2);
             break;
 
-        case "/": divide(num1, num2);
+        case "/":result = divide(num1, num2);
             break;
 
 
     }
+    showResult(result);
+    console.log("result "+ result);
 }
 
 
@@ -164,4 +178,10 @@ function populateDisplay(value) {
 
     //console.log("firstNum "+firstNum);
 
+}
+
+
+function showResult(result){
+    const displayResult = document.querySelector("#user-input");
+    displayResult.setAttribute("value",result);
 }
