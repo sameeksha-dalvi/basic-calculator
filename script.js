@@ -123,31 +123,45 @@ function divide(num1, num2) {
 
 
 function populateDisplay(value) {
-     
+
     const displayValue = document.querySelector("#user-input");
     let defaultValue = displayValue.getAttribute("value");
-    
-    if(value == ""){// reset the display
+    let newArr = [];
+    if (value == "") {// reset the display
         displayValue.setAttribute("value", value);
         return;
     }
 
-    if(defaultValue == "" || defaultValue == undefined || defaultValue == null){
+    if (defaultValue == "" || defaultValue == undefined || defaultValue == null) {
         console.log("first digit entered");
         displayValue.setAttribute("value", value);
         firstNum = parseInt(value);
-    }else{
+    } else {
 
-        if(value == "+" || value == "-" || value == "*" || value == "/"){
-            operator =  value; 
-            console.log("operator : "+operator);
+        if (value == "+" || value == "-" || value == "*" || value == "/") {
+            operator = value;
+            console.log("operator : " + operator);
         }
-        console.log("defaultValue :"+defaultValue);
+
         displayValue.setAttribute("value", defaultValue + value);
         let finalVal = defaultValue + value;
-        firstNum = parseInt (finalVal);
+        if (finalVal.includes("+")) {
+            newArr = finalVal.split("+");
+        } else if (finalVal.includes("-")) {
+            newArr = finalVal.split("-");
+        } else if (finalVal.includes("*")) {
+            newArr = finalVal.split("*");
+        } else if (finalVal.includes("/")) {
+            newArr = finalVal.split("/");
+        }
+
+        firstNum = parseInt(newArr[0]);
+        secondNum = parseInt(newArr[1]);
+
+        console.log("firstNum " + firstNum);
+        console.log("secondNum " + secondNum);
     }
 
     //console.log("firstNum "+firstNum);
-   
+
 }
