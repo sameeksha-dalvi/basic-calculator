@@ -91,6 +91,11 @@ equalBtn.addEventListener("click", () =>{
        alert("Please enter correct values"); 
        return false;
     }
+
+    if(operator == "/" && secondNum == 0){
+        alert("Cannot divide by 0. Please enter correct values."); 
+        return false;
+    }
     operate(operator,firstNum,secondNum);
 });
 
