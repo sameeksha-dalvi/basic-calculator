@@ -87,8 +87,9 @@ op_div.addEventListener("click", () => {
 
 equalBtn.addEventListener("click", () =>{
 
-    if(operator == "" || operator == undefined || firstNum == "NaN" || secondNum == "NaN"){
+    if(operator == "" || operator == undefined || isNaN(firstNum) || isNaN(secondNum)){
        alert("Please enter correct values"); 
+       return false;
     }
     operate(operator,firstNum,secondNum);
 });
