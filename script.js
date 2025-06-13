@@ -85,18 +85,18 @@ op_div.addEventListener("click", () => {
     populateDisplay("/");
 });
 
-equalBtn.addEventListener("click", () =>{
+equalBtn.addEventListener("click", () => {
 
-    if(operator == "" || operator == undefined || isNaN(firstNum) || isNaN(secondNum)){
-       alert("Please enter correct values"); 
-       return false;
-    }
-
-    if(operator == "/" && secondNum == 0){
-        alert("Cannot divide by 0. Please enter correct values."); 
+    if (operator == "" || operator == undefined || isNaN(firstNum) || isNaN(secondNum)) {
+        alert("Please enter correct values");
         return false;
     }
-    operate(operator,firstNum,secondNum);
+
+    if (operator == "/" && secondNum == 0) {
+        alert("Cannot divide by 0. Please enter correct values.");
+        return false;
+    }
+    operate(operator, firstNum, secondNum);
 });
 
 function operate(op, num1, num2) {
@@ -105,22 +105,22 @@ function operate(op, num1, num2) {
 
     switch (op) {
 
-        case "+":result = add(num1, num2);
+        case "+": result = add(num1, num2);
             break;
 
-        case "-":result = subtract(num1, num2);
+        case "-": result = subtract(num1, num2);
             break;
 
-        case "*":result = multiply(num1, num2);
+        case "*": result = multiply(num1, num2);
             break;
 
-        case "/":result = divide(num1, num2);
+        case "/": result = divide(num1, num2);
             break;
 
 
     }
     showResult(result);
-    console.log("result "+ result);
+    console.log("result " + result);
 }
 
 
@@ -145,6 +145,15 @@ function divide(num1, num2) {
 function populateDisplay(value) {
 
     const displayValue = document.querySelector("#user-input");
+    const displayResult = document.querySelector("#result-value");
+
+    if (displayValue.getAttribute("type") == "hidden") {
+        displayValue.setAttribute("type", "");
+        displayValue.setAttribute("value", "");
+        displayResult.setAttribute("type", "hidden");
+        displayResult.setAttribute("value", "");
+    }
+
     let defaultValue = displayValue.getAttribute("value");
     let newArr = [];
     if (value == "") {// reset the display
@@ -187,7 +196,12 @@ function populateDisplay(value) {
 }
 
 
-function showResult(result){
-    const displayResult = document.querySelector("#user-input");
-    displayResult.setAttribute("value",result);
+function showResult(result) {
+    const displayResult = document.querySelector("#result-value");
+    const userInput = document.querySelector("#user-input");
+    userInput.setAttribute("type", "hidden");
+    displayResult.setAttribute("value", result);
+    displayResult.setAttribute("type", "");
+
+
 }
